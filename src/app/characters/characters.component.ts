@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-characters',
@@ -9,9 +10,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CharactersComponent {
   characters: any = null;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {
 
-  ngOnInit():void{
+  }
+
+  ngOnInit(): void {
     this.getAllCharacters();
   }
 
@@ -22,4 +25,11 @@ export class CharactersComponent {
       console.log(result);
     }, error => console.log('Error: ' + error));
   }
+
+  //Button See More - Character
+  showChar(id: any) {
+    this.router.navigateByUrl('/character/${id}');
+    console.log(id)
+  };
 }
+

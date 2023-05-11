@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <!-- NavBar -->
   <app-navbar></app-navbar>
 
   <!-- Content -->
   <div class="container">
-    <div class="col-md-4" *ngFor="let character of characters.results">
+    <div class="row">
+
+      <div *ngFor=" let character of characters.results" class="col mb-3 mt-3">
       <div class="card">
-        <h5 class="card-title">{{character.name}}</h5>
+        <img src={{character.image}} class="img-top" alt="..." />
 
-
+        <div class="card-body ">
+          <h5 class="card-title mb-3 mt-3">{{character.name}}</h5>
+          <h6 class="card-subtitle mb-3 mt-3">{{character.species}}</h6>
+          <!-- Vertically centered scrollable modal -->
+          <button type="button" class="btn btn-warning text-center" (click)="showChar(character.name)">See More</button>
+        </div>
       </div>
-    </div>
-
+      </div>
   </div>
+</div>
 </body>
+
 </html>
 
 
