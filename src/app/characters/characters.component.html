@@ -11,7 +11,14 @@
   <app-navbar></app-navbar>
 
   <!-- Content -->
-  <div class="row" data-bs-spy="scroll">
+  <div class="container">
+    <div class="col-md-4" *ngFor="let character of characters.results">
+      <div class="card">
+        <h5 class="card-title">{{character.name}}</h5>
+
+
+      </div>
+    </div>
 
   </div>
 </body>
